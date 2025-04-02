@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter } from "react-router-dom";
 import { Routes } from "./routes";
+import { SillyNavbar } from "@/components/silly-navbar";
+import { SillyFooter } from "@/components/silly-footer";
 
 const queryClient = new QueryClient();
 
@@ -16,7 +18,13 @@ const App = () => {
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Routes />
+            <div className="container mx-auto px-4 py-8">
+              <SillyNavbar />
+              <main>
+                <Routes />
+              </main>
+              <SillyFooter />
+            </div>
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>
